@@ -1,0 +1,14 @@
+{
+  "name": "text-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "luxon": "^1.25.0"
+  }
+}

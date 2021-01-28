@@ -1,0 +1,5 @@
+Aquí van los mensajes que se enviarán
+Una línea cada uno
+Sólo uno de estos aparecerá en cada ciclo establecido en la config
+La propiedad de la config es SEND_HOURS
+Representa a que horas:minutos se va a enviar uno de estos mensajes cada día
