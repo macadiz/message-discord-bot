@@ -18,7 +18,6 @@ const getMessage = () => {
   const messagesLength = messages.length;
 
   const randomLineIndex = Math.floor(Math.random() * messagesLength);
-  console.log(randomLineIndex);
   return messages[randomLineIndex];
 };
 
@@ -27,8 +26,8 @@ client.on("ready", () => {
     (channel) => channel.name === CHANNEL && channel.type === "text"
   );
   setInterval(() => {
-    if(shouldSendMessage()) {
-        channel.send(`${MESSAGE_PREFIX ? MESSAGE_PREFIX : ''} ${getMessage()}`);
+    if (shouldSendMessage()) {
+      channel.send(`${MESSAGE_PREFIX ? MESSAGE_PREFIX : ""}${getMessage()}`);
     }
   }, 60000);
 });
