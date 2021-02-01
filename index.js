@@ -5,12 +5,18 @@ const { DateTime } = require("luxon");
 
 const client = new Discord.Client();
 
-const { TOKEN, SEND_HOURS, CHANNEL, MESSAGE_PREFIX } = config;
+const { TOKEN, SEND_HOURS, CHANNEL, MESSAGE_PREFIX } = config || process.env;
+
+let sendHours = SEND_HOURS;
+
+if (!Array.isArray(sendHours)) {
+  sendHours = sendHours.split(',');
+}
 
 client.login(TOKEN);
 
 const shouldSendMessage = () => {
-  return SEND_HOURS.includes(DateTime.local().toFormat("HH:mm"));
+  return sendHours.includes(DateTime.local().toFormat("HH:mm"));
 };
 
 const getMessage = () => {
