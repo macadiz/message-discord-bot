@@ -1,5 +1,8 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
+let config;
+try {
+  require("./config.json");
+} catch {}
 const fs = require("fs");
 const { DateTime } = require("luxon");
 
@@ -9,9 +12,14 @@ const { TOKEN, SEND_HOURS, CHANNEL, MESSAGE_PREFIX } = config || process.env;
 
 let sendHours = SEND_HOURS;
 
+console.log('sendHours', SEND_HOURS);
+
 if (!Array.isArray(sendHours)) {
-  sendHours = sendHours.split(',');
+  sendHours = sendHours.split(",");
+  console.log('newSendHours', sendHours);
 }
+
+console.log('currentDatetime', DateTime.local().toFormat("HH:mm"));
 
 client.login(TOKEN);
 
